@@ -7,6 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+vim.g.mapleader = " "
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -29,7 +30,8 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = {
-        colorscheme = { "hardhacker" }, 
+        colorscheme = { "hardhacker" },
+        -- colorscheme = {"tokyonight"},
   },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
