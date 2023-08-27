@@ -1,5 +1,4 @@
-return { 
-    
+return {
     {
       "goolord/alpha-nvim",
       event = "VimEnter",
@@ -17,7 +16,7 @@ return {
         ]]
         dashboard.section.header.val = vim.split(logo, "\n")
         dashboard.section.buttons.val = {
-          dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+          dashboard.button("f", "- " .. " Find file", ":Telescope find_files <CR>"),
           dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
           dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
           dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
@@ -48,9 +47,7 @@ return {
             end,
           })
         end
-    
         require("alpha").setup(dashboard.opts)
-    
         vim.api.nvim_create_autocmd("User", {
           pattern = "LazyVimStarted",
           callback = function()
@@ -62,7 +59,6 @@ return {
         })
       end,
     }
-    
   --  {
   --    "rcarriga/nvim-notify",
   --    keys = {
@@ -94,5 +90,4 @@ return {
   --    end,
   --  
   --  },
-      
 }
