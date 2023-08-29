@@ -1,16 +1,30 @@
 return {
+-- {
+--     "hardhackerlabs/theme-vim",
+--     config = function()
+--     vim.cmd.colorscheme("hardhacker")
+--     require('lualine').setup({
+--                 options = {
+--                     theme = 'hardhacker'
+--                 },
+--             })
+--   end,
+-- },
 {
-    "hardhackerlabs/theme-vim",
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
     config = function()
-    vim.cmd.colorscheme("hardhacker")
-    require('lualine').setup({
+        vim.cmd.colorscheme("tokyonight-storm")
+        require('lualine').setup({
                 options = {
-                    theme = 'hardhacker'
+                    theme = 'tokyonight'
                 },
             })
-  end,
-},
+    end
 
+},
 {
   "utilyre/barbecue.nvim",
   name = "barbecue",
