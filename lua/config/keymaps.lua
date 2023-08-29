@@ -14,6 +14,13 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- normal --
 -- 窗口--
+-- PERF: fully optimised
+-- HACK: 
+-- TODO: test
+-- NOTE: test
+-- FIX: test
+-- WARNING: test
+-- PASSED: test
 vim.keymap.set("n", "<leader>sv", "<C-w>v") -- 水平新增窗口 
 vim.keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 -- 切换buffer --

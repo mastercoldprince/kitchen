@@ -27,7 +27,6 @@ return {
         },
         config = true,
     },
-    
     {
         "windwp/nvim-autopairs",
         event = "VeryLazy",
@@ -35,5 +34,4 @@ return {
             enable_check_bracket_line = false,
         },
     },
-    
-}   
+}
