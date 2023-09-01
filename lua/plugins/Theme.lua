@@ -23,7 +23,6 @@ return {
                 },
             })
     end
-
 },
 {
   "utilyre/barbecue.nvim",
@@ -38,4 +37,3 @@ return {
   },
 }
 }
-
