@@ -15,11 +15,11 @@ return function ()
             end,
         },
         sources = cmp.config.sources {
-            { name = 'nvim_lsp' },
-            { name = 'path' },
-            { name = 'luasnip' },
-            { name = "buffer" },
-            { name = "copilot"},
+            { name = 'nvim_lsp', group_index = 2},
+            { name = 'path' , group_index = 2},
+            { name = 'luasnip' , group_index = 2},
+            { name = "buffer" , group_index = 2},
+            { name = "copilot", group_index = 2},
         },
         mapping = cmp.mapping.preset.insert {
             ["<Tab>"] = cmp.mapping(function(fallback)

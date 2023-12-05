@@ -7,6 +7,10 @@ local buffer = vim.b
 local global = vim.g
 
 
+
+-- 设置全局主题
+-- global.colors_name = "gruvbox"
+
 -- Global Settings --
 -- 高亮光标行
 option.cursorline = true
@@ -16,7 +20,6 @@ option.autoread = true
 
 -- 显示文件名在终端标题
 option.title = true
-
 -- 不懂的配置，
 option.swapfile = false
 option.backup = false
@@ -32,7 +35,7 @@ option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 -- 加载启用时，当前目录的.vimrc or .exrc
 option.exrc = true
 -- 警用自动换行
-option.wrap = false
+option.wrap = true
 -- 自动补全不自动选中
 global.completeopt = "menu,menuone,noselect,noinsert"
 -- 搜索时高亮
@@ -55,7 +58,7 @@ option.relativenumber = false
 option.clipboard:append("unnamedplus")
 
 -- Buffer Settings --
-buffer.fileenconding = "utf-8"
+-- buffer.fileenconding = "utf-8"
 
 -- mouse --
 option.mouse = "a"
@@ -77,6 +80,8 @@ option.splitbelow = true
 
 -- 设置回退键的行为，允许删除缩进，空格，行首字符
 option.backspace = { "indent", "eol", "start" }
+-- 自动转行
+option.textwidth = 80
 
 -- tabline --
 option.tabstop = 4

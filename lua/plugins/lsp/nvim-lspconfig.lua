@@ -15,7 +15,6 @@ return function()
     -- if not typescript_setup then
     --     return
     -- end
-
     local servers = {
         lua_ls = {
             Lua = {
@@ -33,6 +32,7 @@ return function()
         bashls = {},
         taplo = {},
         ruff_lsp = {},
+        cmake = {},
     }
     local on_attach = function(_, bufnr)
         -- Enable completion triggered by <c-x><c-o>
@@ -95,10 +95,17 @@ return function()
     --
     for server, config in pairs(servers) do
         require("lspconfig")[server].setup(
+            -- 如果有多个表，先合并再深度合并,
             vim.tbl_deep_extend("keep",
                 {
                     on_attach = on_attach,
                     capabilities = capabilities
+                    -- capabilities = vim.tbl_deep_extend("force", capabilities, {
+                    --     offsetEncoding = { "utf-16" },
+                    --     general = {
+                    --         positionEncoding = "utf-16",
+                    --     },
+                    -- })
                 },
                 config
             )
