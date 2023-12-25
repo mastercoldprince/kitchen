@@ -52,7 +52,7 @@ option.smartcase = false
 
 -- 行号--
 option.number = true
-option.relativenumber = false
+option.relativenumber = true
 
 -- clipboard --
 option.clipboard:append("unnamedplus")
