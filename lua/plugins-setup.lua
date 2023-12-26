@@ -149,6 +149,12 @@ completion = {
     },
 }
 tool = {
+    {'akinsho/toggleterm.nvim', version = "*", config = require("plugins.toogleterm") },
+    {
+        "LintaoAmons/easy-commands.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
     {
         "stevearc/aerial.nvim",
         opts = {},
