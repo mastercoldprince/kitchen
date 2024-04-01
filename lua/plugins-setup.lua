@@ -149,6 +149,12 @@ completion = {
     },
 }
 tool = {
+    {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+    },
     {'akinsho/toggleterm.nvim', version = "*", config = require("plugins.toogleterm") },
     {
         "LintaoAmons/easy-commands.nvim",
@@ -705,19 +711,20 @@ ui = {
         -- }
         config = true,
     },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
-        config = require("plugins.indent-blankline")
-        -- config = function()
-        --     require("indent_blankline").setup({
-        --         -- for example, context is off by default, use this to turn it on
-        --         show_current_context = true,
-        --         show_current_context_start = true,
-        --     })
-        -- end,
-    },
-
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     -- event = "VeryLazy",
+    --     config = require("plugins.indent-blankline")
+    --     -- config = function()
+    --     --     require("indent_blankline").setup({
+    --     --         -- for example, context is off by default, use this to turn it on
+    --     --         show_current_context = true,
+    --     --         show_current_context_start = true,
+    --     --     })
+    --     -- end,
+    --
+    -- },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, 
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
