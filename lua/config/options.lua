@@ -34,7 +34,7 @@ option.undofile = true
 option.undodir = vim.fn.expand('$HOME/.local/share/nvim/undo')
 -- 加载启用时，当前目录的.vimrc or .exrc
 option.exrc = true
--- 警用自动换行
+-- 禁用自动换行
 option.wrap = true
 -- 自动补全不自动选中
 global.completeopt = "menu,menuone,noselect,noinsert"
@@ -81,7 +81,7 @@ option.splitbelow = true
 -- 设置回退键的行为，允许删除缩进，空格，行首字符
 option.backspace = { "indent", "eol", "start" }
 -- 自动转行
-option.textwidth = 80
+-- option.textwidth = 80
 
 -- tabline --
 option.tabstop = 4

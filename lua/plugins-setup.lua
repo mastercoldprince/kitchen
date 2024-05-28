@@ -132,30 +132,42 @@ completion = {
         },
     },
 
-    {
-        "zbirenbaum/copilot.lua",
-        lazy = true,
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = true,
-        -- config = require("completion.copilot"),
-        dependencies = {
-            {
-                "zbirenbaum/copilot-cmp",
-                config = true,
-                -- config = require("completion.copilot-cmp"),
-            },
-        },
-    },
+    -- {
+    --     "zbirenbaum/copilot.lua",
+    --     lazy = true,
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = true,
+    --     -- config = require("completion.copilot"),
+    --     dependencies = {
+    --         {
+    --             "zbirenbaum/copilot-cmp",
+    --             config = true,
+    --             -- config = require("completion.copilot-cmp"),
+    --         },
+    --     },
+    -- },
 }
 tool = {
     {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
+        {
+            "daishengdong/calltree.nvim",
+            dependencies = {
+                "dhananjaylatkar/cscope_maps.nvim",
+            },
+            opts = {
+                -- USE EMPTY FOR DEFAULT OPTIONS
+                -- DEFAULTS ARE LISTED BELOW
+            },
+        }
     },
-    {'akinsho/toggleterm.nvim', version = "*", config = require("plugins.toogleterm") },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {'akinsho/toggleterm.nvim', version = "*", opts = require("plugins.toogleterm") },
     {
         "LintaoAmons/easy-commands.nvim",
         event = "VeryLazy",
@@ -377,9 +389,9 @@ tool = {
 }
 game = {
     {
-        { "johngrib/vim-game-snake",         on = "VimGameSnake" },
-        { "koron/nyancat-vim",               on = { "Nyancat", "Nyancat2" } },
-        { "uguu-org/vim-matrix-screensaver", on = "Matrix" },
+        { "johngrib/vim-game-snake",         },
+        { "koron/nyancat-vim",                },
+        { "uguu-org/vim-matrix-screensaver", },
     },
 }
 
@@ -405,10 +417,12 @@ editor = {
             "folke/todo-comments.nvim",
             dependencies = { "nvim-lua/plenary.nvim" },
             opts = {},
-            config = require("plugins.todo-comments"),
+            opts = require("plugins.todo-comments"),
         },
         {
-            { "lervag/vimtex" },
+            "lervag/vimtex",
+            lazy = false,
+
         },
         {
             "hrsh7th/nvim-cmp",
