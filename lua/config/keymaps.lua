@@ -51,3 +51,7 @@ vim.keymap.set("n", "<leader>=", [[<cmd>vertical resize +5<cr>]]) -- make the wi
 vim.keymap.set("n", "<leader>-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
 vim.keymap.set("n", "<leader>+", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "<leader>_", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+
+-- todo.commits --
+
+vim.keymap.set("n", "<leader>t","<cmd>TodoTelescope<cr>" ) -- make the window smaller horizontally by pressing shift and -
