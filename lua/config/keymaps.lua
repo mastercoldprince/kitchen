@@ -2,12 +2,12 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- key mappings --
--- 去掉方向键上下左右，全面拥抱hjkl --
+-- 去掉方向键上下左右，全面拥抱hjkl 煞笔。 --
 -- visural --
-vim.keymap.set({ "n", "i" }, "<Left>", "<Nop>")
-vim.keymap.set({ "n", "i" }, "<Right>", "<Nop>")
-vim.keymap.set({ "n", "i" }, "<Up>", "<Nop>")
-vim.keymap.set({ "n", "i" }, "<Down>", "<Nop>")
+-- vim.keymap.set({ "n", "i" }, "<Left>", "<Nop>")
+-- vim.keymap.set({ "n", "i" }, "<Right>", "<Nop>")
+-- vim.keymap.set({ "n", "i" }, "<Up>", "<Nop>")
+-- vim.keymap.set({ "n", "i" }, "<Down>", "<Nop>")
 -- 行移动 --
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

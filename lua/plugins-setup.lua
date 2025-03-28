@@ -11,6 +11,7 @@ local use_copilot = true
 ai = {
     {
         "zbirenbaum/copilot.lua",
+        lazy=true,
         cmd = "Copilot",
         event = "InsertEnter",
         config = require("plugins.copilot"),
@@ -73,6 +74,7 @@ completion = {
 
     {
         "folke/trouble.nvim",
+        lazy=true,
         -- dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             -- your configuration comes here
@@ -142,8 +144,10 @@ completion = {
 }
 tool = {
     {
+-- 功能性
         {
             "daishengdong/calltree.nvim",
+            lazy=true,
             dependencies = {
                 "dhananjaylatkar/cscope_maps.nvim",
             },
@@ -159,14 +163,21 @@ tool = {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
-    {'akinsho/toggleterm.nvim', version = "*", opts = require("plugins.toogleterm") },
+    {'akinsho/toggleterm.nvim', 
+        lazy=true,
+        version = "*", 
+        opts = require("plugins.toogleterm") },
     {
         "LintaoAmons/easy-commands.nvim",
-        event = "VeryLazy",
+        lazy=true,
+        -- event = "VeryLazy",
+        cmd = { "EasyCommands" },
         opts = {},
     },
+-- outline4code
     {
         "stevearc/aerial.nvim",
+        lazy=true,
         opts = {},
         -- Optional dependencies
         config = require("plugins.lsp.aerial"),
@@ -273,6 +284,7 @@ tool = {
 
     {
         "christoomey/vim-tmux-navigator",
+        lazy=false,
     },
 
     {
@@ -330,6 +342,8 @@ tool = {
     },
     {
         "L3MON4D3/LuaSnip",
+        lazy=true,
+        event = "InsertEnter",
         -- follow latest release.
         version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!).
@@ -337,6 +351,7 @@ tool = {
     },
     {
         "kdheepak/lazygit.nvim",
+        lazy = true,
         -- optional for floating window border decoration
         dependencies = {
             "nvim-telescope/telescope.nvim",
@@ -346,6 +361,7 @@ tool = {
     },
     {
         "sindrets/diffview.nvim",
+        lazy= true
     },
     {
         "dstein64/vim-startuptime",
@@ -389,11 +405,44 @@ game = {
 
 editor = {
     {
+        "mikavilpas/yazi.nvim",
+        lazy=true,
+        -- event = "VeryLazy",
+        cmd = { "Yazi" },
+        keys = {
+            {
+                "R",
+                "<cmd>Yazi<cr>",
+                desc = "Open yazi at the current file",
+            },
+        },
+        opts = {
+            floating_window_scaling_factor = 1,
+            yazi_floating_window_border = "none",
+            open_for_directories = true,
+            open_multiple_tabs = true,
+            keymaps = {
+                show_help = '<f1>',
+                open_file_in_vertical_split = '<leader>h',
+                open_file_in_horizontal_split = '<c-x>',
+                open_file_in_tab = '<c-t>',
+                grep_in_directory = '<c-f>',
+                replace_in_directory = '<c-r>',
+                cycle_open_buffers = '<tab>',
+                copy_relative_path_to_selected_files = '<c-y>',
+                send_to_quickfix_list = '<c-q>',
+            },
+        },
+    },
+
+    {
         "numToStr/Comment.nvim",
         opts = {
             -- add any options here
         },
-        lazy = false,
+        lazy = true,
+        event = { "BufReadPost", "BufNewFile" },
+
     },
     {
         {
@@ -512,7 +561,7 @@ theme = {
 
     {
         "folke/tokyonight.nvim",
-        lazy = false,
+        lazy = true,
         priority = 1000,
         opts = {},
         -- config = function()
@@ -526,43 +575,47 @@ theme = {
     },
     {
         "ellisonleao/gruvbox.nvim",
-        lazy = false,
+        lazy = true,
+        event= "VeryLazy",
         priority = 1000,
         opts = {},
         config = function()
-            vim.cmd.colorscheme("gruvbox")
-            require("lualine").setup({
-                options = {
-                    theme = "gruvbox",
-                },
-            })
+            -- vim.cmd.colorscheme("gruvbox")
+            vim.cmd([[colorscheme gruvbox]])
+            -- require("lualine").setup({
+            --     options = {
+            --         theme = "gruvbox",
+            --     },
+            -- })
         end,
     },
 }
 ui = {
-    {
-        "akinsho/bufferline.nvim",
-        event = "VeryLazy",
-        version = "*",
-        dependencies = "nvim-tree/nvim-web-devicons",
-        config = function()
-            require("bufferline").setup({
-                options = {
-                    diagnostics = "nvim_lsp",
-                    offsets = {
-                        {
-                            filetype = "neo-tree",
-                            text = "File Explorer",
-                            highlight = "Directory",
-                            text_align = "left",
-                        },
-                    },
-                },
-            })
-        end,
-    },
+    -- {
+    --     "akinsho/bufferline.nvim",
+    --     event = "VeryLazy",
+    --     version = "*",
+    --     dependencies = "nvim-tree/nvim-web-devicons",
+    --     config = function()
+    --         require("bufferline").setup({
+    --             options = {
+    --                 diagnostics = "nvim_lsp",
+    --                 offsets = {
+    --                     {
+    --                         filetype = "neo-tree",
+    --                         text = "File Explorer",
+    --                         highlight = "Directory",
+    --                         text_align = "left",
+    --                     },
+    --                 },
+    --             },
+    --         })
+    --     end,
+    -- },
     {
         "lewis6991/gitsigns.nvim",
+        lazy=true,
+
         config = function()
             require("gitsigns").setup({
                 signs = {
@@ -607,6 +660,18 @@ ui = {
             })
         end,
     },
+    -- {
+    --   'rmagatti/auto-session',
+    --   lazy = false,
+    -- 
+    --   ---enables autocomplete for opts
+    --   ---@module "auto-session"
+    --   ---@type AutoSession.Config
+    --   opts = {
+    --     suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+    --     -- log_level = 'debug',
+    --   }
+    -- },
 
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -708,14 +773,16 @@ ui = {
     },
     {
         "nvim-lualine/lualine.nvim",
+        lazy=true,
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
-        -- options = {
-        --         theme = 'hardhacker'
-        --     },
-        -- config = function()
-        --         require('lualine').setup()
-        -- end
-        -- }
+        options = {
+                theme = 'gruvbox'
+            },
+        --config = function()
+        --        require('lualine').setup()
+        --end
+        --},
         config = true,
     },
     -- {
@@ -731,9 +798,16 @@ ui = {
     --     -- end,
     --
     -- },
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, 
+    { "lukas-reineke/indent-blankline.nvim",
+        lazy=true,
+        event = { "BufReadPost", "BufNewFile" },
+        main = "ibl",
+        opts = {} }, 
+    
     {
         "utilyre/barbecue.nvim",
+        lazy=true,
+        event = { "BufReadPost", "BufNewFile" },
         name = "barbecue",
         version = "*",
         dependencies = {
@@ -759,10 +833,12 @@ ui = {
         ]]
             dashboard.section.header.val = vim.split(logo, "\n")
             dashboard.section.buttons.val = {
-                dashboard.button("f", "- " .. " Find file", ":Telescope find_files <CR>"),
+                -- dashboard.button("f", "- " .. " Find file", ":Telescope find_files <CR>"),
+                dashboard.button("f", "- " .. " Find file", [[:lua require('telescope.builtin').find_files()<cr>]]),
                 dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-                dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+                -- dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
+                dashboard.button("g", " " .. " Find text", [[:lua require('telescope.builtin').live_grep()<cr>]]),
                 dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
                 dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
                 dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
@@ -805,3 +881,4 @@ ui = {
 }
 -- return completion,editor,tool,ui
 return { completion, tool, editor, ui, game, theme, ai }
+-- return { completion, tool, editor, ui, game, theme}

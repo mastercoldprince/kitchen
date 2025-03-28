@@ -14,6 +14,9 @@ local global = vim.g
 -- Global Settings --
 -- 高亮光标行
 option.cursorline = true
+-- 高亮光标列 
+option.cursorcolumn = true
+
 
 -- 文件在外部加载时，重新打开文件
 option.autoread = true

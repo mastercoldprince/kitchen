@@ -108,6 +108,7 @@ return function()
             }, config)
         )
     end
+    -- require'lspconfig'.clangd.setup({})
     require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(servers),
         handlers = {
